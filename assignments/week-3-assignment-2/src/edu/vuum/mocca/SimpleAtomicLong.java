@@ -23,13 +23,15 @@ class SimpleAtomicLong
     /**
      * The ReentrantReadWriteLock used to serialize access to mValue.
      */
-    // TODO - add the implementation
+    // TODO DONE - add the implementation
+    private final ReentrantReadWriteLock mRWLock = new ReentrantReadWriteLock();
 
     /**
      * Creates a new SimpleAtomicLong with the given initial value.
      */
-    public SimpleAtomicLong(long initialValue) {
-        // TODO - you fill in here
+    public SimpleAtomicLong(final long initialValue) {
+        // TODO DONE - you fill in here
+    	mValue = initialValue;
     }
 
     /**
@@ -38,7 +40,15 @@ class SimpleAtomicLong
      * @returns The current value
      */
     public long get() {
-        // TODO - you fill in here
+        // TODO DONE - you fill in here
+    	final Lock lock = mRWLock.readLock();
+    	lock.lock();
+    	
+    	try {
+    		return mValue;
+    	} finally {
+    		lock.unlock();
+    	}
     }
 
     /**
@@ -47,7 +57,15 @@ class SimpleAtomicLong
      * @returns the updated value
      */
     public long decrementAndGet() {
-        // TODO - you fill in here
+        // TODO DONE - you fill in here
+    	final Lock lock = mRWLock.writeLock();
+    	lock.lock();
+    	
+    	try {
+    		return --mValue;
+    	} finally {
+    		lock.unlock();
+    	}
     }
 
     /**
@@ -56,7 +74,15 @@ class SimpleAtomicLong
      * @returns the previous value
      */
     public long getAndIncrement() {
-        // TODO - you fill in here
+        // TODO DONE - you fill in here
+    	final Lock lock = mRWLock.writeLock();
+    	lock.lock();
+    	
+    	try {
+    		return mValue++;
+    	} finally {
+    		lock.unlock();
+    	}
     }
 
     /**
@@ -65,7 +91,15 @@ class SimpleAtomicLong
      * @returns the previous value
      */
     public long getAndDecrement() {
-        // TODO - you fill in here
+        // TODO DONE - you fill in here
+    	final Lock lock = mRWLock.writeLock();
+    	lock.lock();
+    	
+    	try {
+    		return mValue--;
+    	} finally {
+    		lock.unlock();
+    	}
     }
 
     /**
@@ -74,7 +108,16 @@ class SimpleAtomicLong
      * @returns the updated value
      */
     public long incrementAndGet() {
-        // TODO - you fill in here
+        // TODO DONE - you fill in here
+    	
+    	final Lock lock = mRWLock.writeLock();
+    	lock.lock();
+    	
+    	try {
+    		return ++mValue;
+    	} finally {
+    		lock.unlock();
+    	}
     }
 }
 
