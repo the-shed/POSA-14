@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * @brief This class tests the use of Java Threads and several
  *        implementations of the Java BlockingQueue interface.
  */
-public class SynchronizedQueue {
+public class a59d98b0e4d611e38d6a052f6a0d03f5 {
     /**
      * Keep track of the number of times the producer test iterates.
      */
@@ -216,25 +216,31 @@ public class SynchronizedQueue {
             // code below to make it easy for peer reviewers to find
             // them.
 
-            // TODO - you fill in here to replace the null
+            // TODO +DONE - you fill in here to replace the null
             // initialization below to create two Java Threads, one
             // that's passed the producerRunnable and the other that's
             // passed the consumerRunnable.
-            Thread consumer = null;
-            Thread producer = null;
+            Thread consumer = new Thread(consumerRunnable);
+            Thread producer = new Thread(producerRunnable);
 
-            // TODO - you fill in here to start the threads. More
+            // TODO +DONE- you fill in here to start the threads. More
             // interesting results will occur if you start the
             // consumer first.
+            consumer.start();
+            producer.start();
             
             // Give the Threads a chance to run before interrupting
             // them.
             Thread.sleep(100);
 
-            // TODO - you fill in here to interrupt the threads.
+            // TODO +DONE- you fill in here to interrupt the threads.
+            consumer.interrupt();
+            producer.interrupt();
 
-            // TODO - you fill in here to wait for the threads to
+            // TODO +DONE- you fill in here to wait for the threads to
             // exit.
+            consumer.join();
+            producer.join();            
             
             // Do some sanity checking to see if the Threads work as
             // expected.
