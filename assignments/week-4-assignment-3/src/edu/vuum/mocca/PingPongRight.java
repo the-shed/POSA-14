@@ -21,7 +21,7 @@ public class PingPongRight {
     /**
      * The number of threads playing the game
      */
-	private static final int MAX_THREADS = 2;
+    private static final int MAX_THREADS = 2;
 
     /**
      * Latch that will be decremented each time a thread exits.
