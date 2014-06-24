@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * @brief This class tests the use of Java Threads and several
  *        implementations of the Java BlockingQueue interface.
  */
-public class a59d98b0e4d611e38d6a052f6a0d03f5 {
+public class SynchronizedQueue {
     /**
      * Keep track of the number of times the producer test iterates.
      */
