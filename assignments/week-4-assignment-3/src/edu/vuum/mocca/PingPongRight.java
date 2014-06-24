@@ -92,15 +92,14 @@ public class PingPongRight {
 
             // TODO - You fill in here.
         	try {
-				for (int loops = 1; loops <= mMaxLoopIterations; ++loops)
-				{
-					acquire();
-					System.out.println(mStringToPrint + "(" + loops + ")");
-					release();
+        		for (int loops = 1; loops <= mMaxLoopIterations; ++loops) {
+        			acquire();
+        			System.out.println(mStringToPrint + "(" + loops + ")");
+        			release();
 				}
-			} finally {
-	        	mLatch.countDown();
-			}
+        	} finally {
+        		mLatch.countDown();
+        	}
 
         }
 
