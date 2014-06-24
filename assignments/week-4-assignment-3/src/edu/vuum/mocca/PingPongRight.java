@@ -4,8 +4,6 @@ package edu.vuum.mocca;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 /**
  * @class PingPongRight
  * 
