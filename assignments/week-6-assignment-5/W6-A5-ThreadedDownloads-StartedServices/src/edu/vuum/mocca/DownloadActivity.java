@@ -118,7 +118,7 @@ public class DownloadActivity extends DownloadBase {
         											getUrlString());
         	startService(intent);
         	
-            which = "Starting IntentService";
+            which = "Starting DownloadIntentService";
             break;
         
         case R.id.thread_pool_button:
